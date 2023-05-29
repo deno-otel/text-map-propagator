@@ -1,0 +1,17 @@
+{
+  "tasks": {},
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true
+  },
+  "fmt": {
+    "include": ["*.ts"]
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "exclude": []
+    },
+    "include": ["*.ts"]
+  }
+}
