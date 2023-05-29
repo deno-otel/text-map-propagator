@@ -6,7 +6,7 @@ import type { ContextAPI } from "./deps.ts";
 export type SetterFunction<Carrier = unknown> = (
   carrier: Carrier,
   key: string,
-  value: string
+  value: string,
 ) => void;
 
 /**
@@ -14,7 +14,7 @@ export type SetterFunction<Carrier = unknown> = (
  */
 export type GetterFunction<Carrier = unknown> = (
   carrier: Carrier,
-  key: string
+  key: string,
 ) => string | null;
 
 /**
@@ -35,7 +35,7 @@ export interface TextMapPropagator<Carrier = unknown> {
   inject(
     context: ContextAPI,
     carrier: Carrier,
-    setter?: SetterFunction<Carrier>
+    setter?: SetterFunction<Carrier>,
   ): void;
   /**
    * Extracts context from the given carrier. As with all Context modifiers, a new instance of the Context will be returned.
@@ -43,7 +43,7 @@ export interface TextMapPropagator<Carrier = unknown> {
   extract(
     context: ContextAPI,
     carrier: Carrier,
-    getter?: GetterFunction<Carrier>
+    getter?: GetterFunction<Carrier>,
   ): ContextAPI;
 
   /**

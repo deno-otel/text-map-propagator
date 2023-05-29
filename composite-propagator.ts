@@ -11,8 +11,7 @@ import {
  * The propagators have to be of the same type.
  */
 export class CompositePropagator<Carrier = unknown>
-  implements TextMapPropagator<Carrier>
-{
+  implements TextMapPropagator<Carrier> {
   private _propagators: TextMapPropagator<Carrier>[] = [];
 
   constructor(propagators: TextMapPropagator<Carrier>[]) {
@@ -22,7 +21,7 @@ export class CompositePropagator<Carrier = unknown>
   inject(
     context: ContextAPI,
     carrier: Carrier,
-    setter?: SetterFunction<Carrier> | undefined
+    setter: SetterFunction<Carrier> | undefined,
   ): void {
     this._propagators.forEach((propagator) => {
       propagator.inject(context, carrier, setter);
@@ -32,7 +31,7 @@ export class CompositePropagator<Carrier = unknown>
   extract(
     context: ContextAPI,
     carrier: Carrier,
-    getter?: GetterFunction<Carrier> | undefined
+    getter: GetterFunction<Carrier> | undefined,
   ): ContextAPI {
     return this._propagators.reduce((ctx, propagator) => {
       return propagator.extract(ctx, carrier, getter);
