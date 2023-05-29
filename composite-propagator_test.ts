@@ -1,26 +1,14 @@
 // deno-lint-ignore-file no-unused-vars no-explicit-any
-import { ContextAPI } from "https://deno.land/x/otel_context_api@v1.0.0/context-api.ts";
+import { Context, ContextAPI } from "./dev_deps.ts";
 import {
   GetterFunction,
   SetterFunction,
   TextMapPropagator,
 } from "./text-map-propagator.ts";
 import { CompositePropagator } from "./composite-propagator.ts";
-import { assertEquals } from "https://deno.land/std@0.177.1/testing/asserts.ts";
-import {
-  afterEach,
-  beforeEach,
-  describe,
-  it,
-} from "https://deno.land/std@0.189.0/testing/bdd.ts";
-import {
-  assertSpyCall,
-  assertSpyCalls,
-  returnsNext,
-  spy,
-  stub,
-} from "https://deno.land/std@0.189.0/testing/mock.ts";
-import { Context } from "../otel-context-api/mod.ts";
+import { assertEquals } from "./dev_deps.ts";
+import { describe, it } from "./dev_deps.ts";
+import { assertSpyCalls, returnsNext, spy, stub } from "./dev_deps.ts";
 
 const mockGetter: GetterFunction<unknown> = () => {
   return "";
